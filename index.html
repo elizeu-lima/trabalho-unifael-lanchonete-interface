@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanchonete Gustavão Trezoitão</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Tela principal de pedidos -->
+    <div id="tela-pedidos">
+        <header>
+            <h1>Lanchonete Gustavão Trezoitão</h1>
+            <p>O Melhor trabalho da faculdade!</p>
+        </header>
+
+        <main>
+            <section class="menu">
+                <div class="item">
+                    <img src="https://cafetrampolim.com.br/wp-content/uploads/2021/09/Burger.jpg" alt="Hamburger">
+                    <h2>Hamburger</h2>
+                    <p>Delicioso hamburger com queijo, alface e tomate.</p>
+                    <p class="price">R$ 15,00</p>
+                    <button onclick="addItem('Hamburger', 15)">
+                        <i class="fas fa-plus"></i> Adicionar
+                    </button>
+                </div>
+                <div class="item">
+                    <img src="https://s2.glbimg.com/GUda5oj9xkd_yQNyn36mDn9XJmo=/620x455/e.glbimg.com/og/ed/f/original/2018/08/17/beber-refrigerante-todos-os-dias-esta-te-matando.jpg"
+                        alt="Refrigerante">
+                    <h2>Refrigerante</h2>
+                    <p>Refrigerante gelado de 500ml.</p>
+                    <p class="price">R$ 5,00</p>
+                    <button onclick="addItem('Refrigerante', 5)">
+                        <i class="fas fa-plus"></i> Adicionar
+                    </button>
+                </div>
+                <div class="item">
+                    <img src="https://cdn.casaeculinaria.com/wp-content/uploads/2023/03/13101208/Batata-frita.jpg"
+                        alt="Batatinha">
+                    <h2>Batatinha</h2>
+                    <p>Porção de batatinha frita crocante.</p>
+                    <p class="price">R$ 8,00</p>
+                    <button onclick="addItem('Batatinha', 8)">
+                        <i class="fas fa-plus"></i> Adicionar
+                    </button>
+                </div>
+                <div class="item">
+                    <img src="https://media.istockphoto.com/id/1092130320/pt/foto/mixed-brazilian-snack.jpg?s=612x612&w=0&k=20&c=VYKKkXnITNhoJ7e06urCJdWQysp7hTGlX_o14CEzQ4g="
+                        alt="Salgado">
+                    <h2>Salgado</h2>
+                    <p>Salgado assado recheado com queijo e presunto.</p>
+                    <p class="price">R$ 7,00</p>
+                    <button onclick="addItem('Salgado', 7)">
+                        <i class="fas fa-plus"></i> Adicionar
+                    </button>
+                </div>
+            </section>
+
+            <section class="pedido">
+                <h2><i class="fas fa-shopping-cart"></i> Seu Pedido</h2>
+                <ul id="lista-pedido"></ul>
+                <p>Total: R$ <span id="total">0,00</span></p>
+                <button onclick="irParaPagamento()">
+                    <i class="fas fa-check"></i> Finalizar Pedido
+                </button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Tela de pagamento -->
+    <div id="tela-pagamento" class="hidden">
+        <h2><i class="fas fa-credit-card"></i> Pagamento</h2>
+        <p>Total do Pedido: R$ <span id="total-pagamento">0,00</span></p>
+        <form id="form-pagamento">
+            <label>
+                <input type="radio" name="pagamento" value="cartao-dinheiro" checked>
+                <i class="fas fa-money-bill-wave"></i> Pagamento no local (Cartão ou Dinheiro)
+            </label>
+            <label>
+                <input type="radio" name="pagamento" value="pix">
+                <i class="fas fa-qrcode"></i> Pagamento via PIX
+            </label>
+        </form>
+        <button onclick="finalizarPagamento()">
+            <i class="fas fa-check"></i> Confirmar Pagamento
+        </button>
+        <button onclick="voltarParaPedidos()">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </div>
+
+    <!-- Tela de agradecimento -->
+    <div id="tela-agradecimento" class="hidden">
+        <h2><i class="fas fa-check-circle"></i> Obrigado pelo seu pedido!</h2>
+        <p>Seu pedido será entregue em aproximadamente <strong>30 minutos</strong>.</p>
+        <button onclick="voltarParaPedidos()">
+            <i class="fas fa-utensils"></i> Fazer Novo Pedido
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
